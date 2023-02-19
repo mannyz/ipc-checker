@@ -1,0 +1,5 @@
+build/
+*.code-workspace
+.DS_Store
+.vscode/
+.cache/clangd/index/

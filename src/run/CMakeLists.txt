@@ -1,0 +1,47 @@
+list(
+  APPEND
+  RUN_SOURCES_LIST
+  src/as/analyzer/run.cpp
+  src/as/consumer/run.cpp
+  src/as/producer/run.cpp
+  src/as/run_test/run.cpp
+  src/common/src/arguments.cpp
+  src/common/src/scheduler.cpp
+  src/common/src/utils.cpp
+  src/types.cpp
+)
+
+add_library(
+  run
+  STATIC
+  ${RUN_SOURCES_LIST}
+)
+
+target_link_libraries(
+  run
+  PRIVATE
+  connection
+  generator
+  measurer
+  statistics
+)
+
+target_include_directories(
+  run
+  PRIVATE
+  #
+  ${ACTORS_SOURCE_DIR}/include
+  ${COMMON_SOURCE_DIR}/include
+  ${CONNECTION_SOURCE_DIR}/include
+  ${CONNECTION_SOURCE_DIR}/interface/include
+  ${GENERATOR_SOURCE_DIR}/include
+  ${GENERATOR_SOURCE_DIR}/interface/include
+  ${INTERFACE_SOURCE_DIR}/include
+  ${MEASURER_SOURCE_DIR}/include
+  ${MEASURER_SOURCE_DIR}/interface/include
+  ${STATISTICS_SOURCE_DIR}/include
+  ${STATISTICS_SOURCE_DIR}/interface/include
+  #
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/common/include
+)
