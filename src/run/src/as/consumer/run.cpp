@@ -26,7 +26,8 @@
 #include "connection/packers/network_packer/network_packer.hpp"
 #include "connection/packers/objects/string.hpp"
 #include "connection/packers/objects/time_point.hpp"
-#include "measurer/measurer.hpp"
+#include "measurers/chrono/measurer.hpp"
+#include "measurers/rdtsc/measurer.hpp"
 
 namespace {
 
@@ -86,9 +87,9 @@ CreateDependencyFromParams(const BufferParams &params) {
   return TypeHolder<Buffer>();
 }
 
-DependencyAsArgument<VarianDependency<Measurer>>
+DependencyAsArgument<VarianDependency<RdtscMeasurer>>
 CreateDependencyFromParams(const MeasurerParams &params) {
-  return Measurer(params.chunks_total_count);
+  return RdtscMeasurer(params.chunks_total_count);
 }
 
 DependencyAsArgument<VarianDependency<NetSocketServer, PipeServer,

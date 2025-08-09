@@ -22,7 +22,8 @@
 #include "connection/packers/objects/time_point.hpp"
 #include "generator/simple_round_generator.hpp"
 #include "generator/simple_round_generator_impl_traits.hpp"
-#include "measurer/measurer.hpp"
+#include "measurers/chrono/measurer.hpp"
+#include "measurers/rdtsc/measurer.hpp"
 
 namespace {
 
@@ -91,9 +92,9 @@ CreateDependencyFromParams(const BufferParams &params) {
   return TypeHolder<Buffer>();
 }
 
-DependencyAsArgument<VarianDependency<Measurer>>
+DependencyAsArgument<VarianDependency<RdtscMeasurer>>
 CreateDependencyFromParams(const MeasurerParams &params) {
-  return Measurer(params.chunks_total_count);
+  return RdtscMeasurer(params.chunks_total_count);
 }
 
 DependencyAsArgument<VarianDependency<SimpleRoundGenerator>>

@@ -1,4 +1,4 @@
-#include "measurer/measurer.hpp"
+#include "measurers/chrono/measurer.hpp"
 
 Measurer::Measurer(std::size_t chunks_total_count) {
   _measurements.reserve(chunks_total_count);

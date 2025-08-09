@@ -16,7 +16,8 @@
 #include "connection/packers/local_packer/local_packer.hpp"
 #include "connection/packers/network_packer/network_packer.hpp"
 #include "connection/packers/objects/time_point.hpp"
-#include "measurer/measurer.hpp"
+#include "measurers/chrono/measurer.hpp"
+#include "measurers/rdtsc/measurer.hpp"
 #include "statistics/statistics.hpp"
 #include "statistics/statistics_impl.hpp"
 

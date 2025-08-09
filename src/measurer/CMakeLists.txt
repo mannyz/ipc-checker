@@ -1,7 +1,9 @@
 list(
   APPEND
   MEASURER_SOURCES_LIST
-  src/measurer.cpp
+  src/measurers/chrono/measurer.cpp
+  src/measurers/rdtsc/measurer.cpp
+  src/measurers/rdtsc/calibrator.cpp
 )
 
 add_library(measurer STATIC ${MEASURER_SOURCES_LIST})
